@@ -1,0 +1,109 @@
+
+header{
+    width: 100%;
+    height: 60px;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+nav{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.left a{
+    text-decoration: none;
+    font-size: 25px;
+
+}
+.left img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-bottom:5px ;
+    margin-right: 5px;
+}
+.middle ul{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.middle ul li{
+    list-style-type: none;
+}
+.middle ul li a{
+    margin: 0px 9px ;
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    padding: 8px;
+    transition: 0.8s;
+}
+.middle ul li a:hover{
+    color: crimson;
+}
+.middle i{
+    display: none;
+}
+.right a{
+    text-decoration: none;
+    font-size: 20px;
+    margin: 0px 8px;
+}
+.cartquantity{
+    color: red;
+}
+@media screen and (max-width:920px) {
+    .middle ul li a{
+        display: none;
+    }
+    .middle ul{
+        position: absolute;
+        top: 72px;
+        z-index: 1000;
+        right: 0;
+        width: 80%;
+        height: 100vh;
+        background-color: black;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        padding-top: 30px;
+        border-radius: 10px;
+        display: none;
+        text-align: center;
+    }
+     #nav ul{
+        display: block;
+    }
+    .middle ul li a{
+        color: white;
+        display: block;
+    }
+    .middle ul li a{
+        padding: 20px 0px ;
+        color: white;
+        font-size: 25px;
+    }
+    .middle ul li a:hover{
+        color: crimson;
+    }
+    .middle i{
+        display: block;
+        font-size: 22px;
+        cursor: pointer;
+        color: white;
+    }
+    .left img{
+        width: 60px;
+        height: 60px;
+        background-size: cover;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+    
+}

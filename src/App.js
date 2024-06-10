@@ -1,24 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Cart from './Pages/Cart/Cart';
+import Home from './Pages/Home/Home';
+import Loginform from './Pages/LoginForm/LoginForm';
+import SignupForm from './Pages/SignupFprm/SignupForm';
+import { useState  } from 'react';
+import Productdetail from './Pages/Productdetails/Productdetails';
+import AllProduct from './Pages/Allproducts/AllProduct';
 
 function App() {
+  const [mode, setMode] = useState("dark");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <>
+    <div>
+      <BrowserRouter>
+      <Routes>
+      <Route path = "/" element ={<Home/>}/>
+      <Route path = "/cart" element ={<Cart mode = {mode}/>}/>
+      <Route path = "/loginform" element ={<Loginform/>}/>
+      <Route path = "/signupform" element ={<SignupForm/>}/>
+      <Route path = "/product/:id" element ={<Productdetail/>}/>
+      <Route path="/products/:categoryName" element={<AllProduct />} />
+    </Routes>
+    </BrowserRouter>
     </div>
+    </>
+  
   );
 }
 

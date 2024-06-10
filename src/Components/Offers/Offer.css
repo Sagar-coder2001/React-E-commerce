@@ -1,0 +1,32 @@
+.offers-container h2{
+    font-size: 25px;
+    margin-left: 10px;
+}
+.offers-container{
+    padding: 20px 0px;
+}
+.offer-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.offer{
+    border: none;
+    padding: 10px;
+    width: 250px;
+    height: 350px;
+    text-align: center;
+    background-color: rgb(255, 249, 249);
+    border-radius: 5px;
+}
+.offer h2{
+    font-size: 18px;
+}
+.offer img{
+    width: 200px;
+    height: 250px;
+}

@@ -1,0 +1,46 @@
+.cart img{
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    background-position: center;
+    background-size: cover;
+}
+.cart-container{
+    width: 90%;
+    margin: 0px auto;
+}
+
+ 
+.cart{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.cartname button{
+    border: none;
+    outline: none;
+    margin: 0px 8px;
+}
+
+
+@media screen and (max-width : 700px) {
+    .cartname h5{
+        font-size: 15px;
+    }
+    .cart-container{
+        width: 100%;
+    }
+    
+}
+
+.cart-button{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* margin: 8px 0px; */
+}
+.cart-button button{
+    padding: 9px;
+}
