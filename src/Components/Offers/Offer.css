@@ -4,6 +4,8 @@
 }
 .offers-container{
     padding: 20px 0px;
+    width: 90%;
+    margin: 0px auto;
 }
 .offer-container{
     display: flex;
@@ -13,20 +15,25 @@
     flex-wrap: wrap;
     margin-top: 20px;
 }
-
 .offer{
     border: none;
     padding: 10px;
     width: 250px;
-    height: 350px;
+    height: 400px;
     text-align: center;
-    background-color: rgb(255, 249, 249);
+    background-color: aliceblue;
     border-radius: 5px;
 }
 .offer h2{
-    font-size: 18px;
+    font-size: 14px;
+}
+.price span{
+    font-size: 15px;
 }
 .offer img{
     width: 200px;
     height: 250px;
+}
+.offer button{
+    width: 100%;
 }

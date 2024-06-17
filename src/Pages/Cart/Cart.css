@@ -5,26 +5,30 @@
     background-position: center;
     background-size: cover;
 }
+.cartcontainer{
+    padding: 30px 0px;
+}
 .cart-container{
     width: 90%;
     margin: 0px auto;
 }
-
- 
 .cart{
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px;
 }
-
 .cartname button{
     border: none;
     outline: none;
     margin: 0px 8px;
 }
-
-
+.subtotal{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 10px 0px;
+}
 @media screen and (max-width : 700px) {
     .cartname h5{
         font-size: 15px;
@@ -32,7 +36,6 @@
     .cart-container{
         width: 100%;
     }
-    
 }
 
 .cart-button{

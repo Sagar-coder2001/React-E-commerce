@@ -19,7 +19,7 @@ const initialState = {
             state.textcolor = 'black'
         },
         dark : (state) => {
-            state.value = '#070537'
+            state.value = '#0E1027'
             state.navbar = 'black'
             state.textcolor = 'white'
         }

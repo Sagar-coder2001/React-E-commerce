@@ -21,7 +21,7 @@ const Category = () => {
       },
       {
         img : 'https://thumbs.dreamstime.com/z/skincare-vector-icon-isolated-white-background-outline-thin-line-skincare-icon-website-design-mobile-app-development-189437456.jpg',
-        name : 'skincare'
+        name : 'Skin-Care'
       },
       {
         img : 'https://cdn1.iconfinder.com/data/icons/cloths-and-shoes-1/48/cloth_clothing_wearing_fashion_womenswear_top_tshirt-512.png',
@@ -36,29 +36,21 @@ const Category = () => {
         name : 'womens-bags'
       },
       {
-        img : 'https://webstockreview.net/images/smartphone-icon-png-6.png',
-        name : 'smartphones'
+        img : 'https://th.bing.com/th/id/OIP.wUnpByTvGnglaJiH7HJ2aAHaH_?w=183&h=197&c=7&r=0&o=5&dpr=1.1&pid=1.7',
+        name : 'mens-shirts'
       },
       {
-        img : 'https://webstockreview.net/images/smartphone-icon-png-6.png',
-        name : 'smartphones'
+        img : 'https://thumbs.dreamstime.com/b/men-s-classic-wrist-watch-clock-icon-vector-gray-background-115614416.jpg',
+        name : 'Mens Watches'
       },
       {
-        img : 'https://th.bing.com/th/id/OIP.fFFQuzkbQfivAURH_V7pRgHaH6?w=164&h=180&c=7&r=0&o=5&dpr=1.1&pid=1.7',
-        name : 'womens-bags'
+        img : 'https://th.bing.com/th/id/OIP.ceMCBqfO4khbBLKYpQjK8wHaHa?w=5120&h=5120&rs=1&pid=ImgDetMain',
+        name : 'Laptops'
       },
       {
-        img : 'https://image.shutterstock.com/image-vector/womens-shoes-icon-vector-260nw-1063890302.jpg',
-        name : 'womens-shoes'
-      },
-      {
-        img : 'https://cdn1.iconfinder.com/data/icons/cloths-and-shoes-1/48/cloth_clothing_wearing_fashion_womenswear_top_tshirt-512.png',
-        name : 'tops'
-      },
-      {
-        img : 'https://webstockreview.net/images/smartphone-icon-png-6.png',
-        name : 'smartphones'
-      },
+        img : 'https://clipground.com/images/beauty-icon-clipart.jpg',
+        name : 'Beauty'
+      }
     ]);
 
     const handlecart = (item) => {

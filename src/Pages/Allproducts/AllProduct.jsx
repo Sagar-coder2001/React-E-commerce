@@ -56,8 +56,12 @@ const AllProduct = () => {
   return (
     <>
       <div>
-        <div className='allproductcontainer' style={{ backgroundColor: bgcolor }}>
+        <div className='allproductcontainer' style={{ backgroundColor: bgcolor, color : txtcolor}}>
           <Layout>
+            <div className='product-container'>
+              <h2>Explore Our {selectedCategory} New Products</h2>
+              <p>Stay comfortable and stylish with the wide selection of sweatshirts available at Codeswear.com. Our sweatshirts are perfect for every occasion, whether you're looking for a casual everyday sweatshirt or something to wear to the gym. We have a variety of styles to choose from, including coding sweatshirts, anime sweatshirts, and casual sweatshirts for everyday wear.</p>
+            </div>
             <div className="card-container">
               {
                 product.map((item) => {
@@ -67,7 +71,7 @@ const AllProduct = () => {
                         handleProductClick(item)
                       }}>
                         <img src={item.images[0]} alt="" />
-                        <h5>{item.category}</h5>
+                        <h5>{item.title}</h5>
                         <p>$ {item.price}</p>
                         <button className='add-to-cart btn btn-info' onClick={(event) => handleAddToCart(event, item)}>Add Cart</button>
                       </div>

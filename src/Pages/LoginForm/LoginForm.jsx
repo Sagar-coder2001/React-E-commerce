@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import "./Loginform.css";
 import Layout from '../../Components/Layout/Layout';
-import { Link } from 'react-router-dom';
+import { Link , Navigate, useNavigate } from 'react-router-dom';
 import { useDispatch , useSelector } from 'react-redux';
 
 function Loginform() {
@@ -10,6 +10,7 @@ function Loginform() {
     username : '',
     password : ''
   })
+  const navigate = useNavigate();
 
   const showLoginData = (e) =>{
     setLogin((prev) => ({
@@ -24,6 +25,8 @@ function Loginform() {
     for(let i = 0; i < loginData.length; i++){
       if(login.username === loginData[i].username && login.password === loginData[i].password){
         alert('Login Successfull')
+        checkcart('true')
+        navigate('/home');
         clearlogin();
         return true;
       }
@@ -41,7 +44,11 @@ function Loginform() {
       password : ''
     })
   }
-  return (
+
+  const checkcart = (val) => {
+    let showlogin =JSON.stringify(localStorage.setItem("showlogin", val));
+  }
+   return (
     <>
     <Layout>
     <div className='loginform-container'>

@@ -3,33 +3,30 @@ import "./Home.css";
 import { useState } from 'react';
 import Category from '../../Components/Category/Category.jsx';
 import Offer from '../../Components/Offers/Offer.jsx';
+import Brands from '../../Components/Brands/Brands.jsx';
+import Slider from '../../Components/Slider/Slider.jsx';
+import { useSelector } from 'react-redux';
 
 export default function Home() {
+  const bgcolor = useSelector((state) => state.theme.value)
+  const txtcolor = useSelector((state) => state.theme.textcolor)
   const [index , setIndex] = useState(0);
   const slide = [
     {
-      img : 'https://as1.ftcdn.net/v2/jpg/02/07/92/80/1000_F_207928043_CfS9KgW2M7O1mKdKBNOvpPOaES7HTytV.jpg',
-      name : 'Nike'
+      img : 'https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1718366437/Croma%20Assets/CMS/Homepage%20Banners/HP%20Rotating/2024/June/15062024/Desktop/HP_Rotating_Oneplus_15june24_o6nplq.jpg',
+      name : 'i phone'
     },
     {
-      img : 'https://img.freepik.com/free-psd/sneakers-sale-template-landing-page_23-2148748545.jpg?size=626&ext=jpg&ga=GA1.1.1224184972.1715558400&semt=ais_user',
+      img : 'https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1718366437/Croma%20Assets/CMS/Homepage%20Banners/HP%20Rotating/2024/June/15062024/Desktop/HP_Rotating_Samsung_15june24_jo0cfr.jpg',
       name : 'Nike Shoes'
     },
     {
-      img : 'https://img.freepik.com/free-psd/black-friday-banner-with-discounts-3d-rendering_1419-2424.jpg?size=626&ext=jpg&ga=GA1.1.1224184972.1715558400&semt=ais_user',
+      img : 'https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1718366438/Croma%20Assets/CMS/Homepage%20Banners/HP%20Rotating/2024/June/15062024/Desktop/HP_Rotating_SW_15june24_xw2s3h.jpg',
       name : 'Nike Shoes'
     },
     {
       img : 'https://img.freepik.com/free-psd/running-shoes-banner-template_23-2148681438.jpg',
       name : 'Nike'
-    },
-    {
-      img : 'https://i.pinimg.com/736x/3a/3e/f4/3a3ef43429c62602c96b69ae9efeb886.jpg',
-      name : 'Nike Shoes'
-    },
-    {
-      img : 'https://img.freepik.com/premium-vector/sneakers-shoes-sale-banner-template_565202-173.jpg',
-      name : 'Nike Shoes'
     }
   ]
 
@@ -44,6 +41,7 @@ export default function Home() {
   return (
     <>
     <Layout>
+      <div style={{backgroundColor : bgcolor , color : txtcolor}}>
       <div className="home-container">
         <div className="container">
           <button onClick={prevSlide} className='prev'><i className="fa-solid fa-chevron-left"></i></button>
@@ -52,9 +50,11 @@ export default function Home() {
           <button onClick={nextSlide} className='next'><i className="fa-solid fa-chevron-right"></i></button>
         </div>
       </div>
-      
+      </div>
       <Category/>
       <Offer/>
+      <Slider/>
+      <Brands/>
      </Layout>
     </>
   )

@@ -11,12 +11,22 @@
     gap: 15px;
     padding: 20px;
 }
+.product-container h2{
+    text-align: center;
+    font-size: 25px;
+    margin-top: 30px;
+}
+.product-container p{
+    text-align: center;
+    padding: 30px;
+}
+
 .card{
     width: 250px;
     height: 400px;
     text-align: center;
     padding: 10px;
-    background-color: rgb(255, 249, 249);
+    background-color: aliceblue;
     border: none;
 }
 .card img{

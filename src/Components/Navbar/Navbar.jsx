@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import "./Navbar.css"
@@ -7,31 +7,36 @@ import { useDispatch, useSelector } from 'react-redux';
 
 export default function Navbar() {
   const [humberger, sethumberger] = useState(false);
-  const current = useSelector((state) => state.theme.navbar )
+  const [changeicon , setChangeicon] = useState(true)
+  const bgcolor = useSelector((state) => state.theme.navbar )
   const textcolors = useSelector((state) => state.theme.textcolor)
+  const totalQuantity = useSelector((state) => state.addproduct.totalQuantity);
   const dispatch = useDispatch();
   const changeTheme = () => {
-    if(current == 'black'){
-      dispatch(white())
+    if(bgcolor == 'black'){
+      dispatch(white());
+      setChangeicon(false)
     }
     else{
       dispatch(dark())
+      setChangeicon(true)
     }
   }
   const toggle = () => {
     sethumberger(!humberger)
   }
+
   return (
     <>
       <header >
-        <nav style={{backgroundColor : current}}>
+        <nav style={{backgroundColor : bgcolor}}>
           <div className='left'>
             <img src="https://img.freepik.com/free-vector/instagram-shop-logo-design_23-2149750724.jpg?size=626&ext=jpg" alt="" />
             <a href="">E-Commerce</a>
           </div>
           <div className='middle' id={humberger ? "nav" : ""} >
             <div>
-              <ul style={{backgroundColor : current}}>
+              <ul style={{backgroundColor : bgcolor}}>
                 <Link to='/'><li><a href='#' style={{color:textcolors}}>Home</a></li></Link>
                 <li><a href='#' style={{color:textcolors}}>All Products</a></li>
                 <li><a href='#' style={{color:textcolors}}>Service</a></li>
@@ -43,14 +48,14 @@ export default function Navbar() {
           </div>
           <div className='right'>
             <Link to='/cart'>
-            <i className = "fa-solid fa-cart-shopping">
+            <i className = "fa-solid fa-cart-shopping carticon">
+              <span className='cartquantity' style={{color : textcolors}}>{totalQuantity}</span>
             </i>
-              <span className='cartquantity'>0</span>
             </Link>
             <Link to='/loginform'>
-              <a href="">Login</a>
+              <a href=""><i className='fa fa-user'></i></a>
             </Link>
-            <i className="fa-solid fa-moon" onClick={changeTheme} style={{color:textcolors,cursor : 'pointer'}}></i>
+            <i className={changeicon == true ? "fa fa-moon" :  "fa fa-sun" } onClick={changeTheme} style={{color:textcolors,cursor : 'pointer'}}></i>
           </div>
         </nav>
       </header>
