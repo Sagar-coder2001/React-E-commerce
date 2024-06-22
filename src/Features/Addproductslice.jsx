@@ -48,9 +48,18 @@ const addproductslice = createSlice({
       state.totalAmount = state.cartItems.reduce(
         (total, item) =>  (total + Number(item.price) * Number(item.quantity)).toFixed(2), 0.00
       );
-    }
+    },
+
+    updateQuantity: (state, action) => {
+      const { id, quantity } = action.payload;
+      const product = state.cartItems.find(item => item.id === id);
+      if (product) {
+        product.quantity = quantity;
+      }
+    },
+
     },
 });
 
-export const { addtocartproduct , deleteItem} = addproductslice.actions;
+export const { addtocartproduct , deleteItem , updateQuantity} = addproductslice.actions;
 export default addproductslice.reducer;

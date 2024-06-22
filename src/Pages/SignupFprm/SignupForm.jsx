@@ -31,13 +31,12 @@ const SignupForm = () => {
         // const existingData = JSON.parse(localStorage.getItem('signupData')) || [];
         // existingData.push(formdata);
         // localStorage.setItem('signupData', JSON.stringify(existingData));
-        axios.post('http://localhost:3000/signup', formdata);
+        axios.post('http://localhost:3000/signup',formdata);
         setFormData({
           name: '',
           mobile: '',
           email: '',
-          password: '',
-          confpassword: ''
+          password: ''
         });
         alert('Details Saved Succesfully');
       }
@@ -81,5 +80,4 @@ const SignupForm = () => {
     </>
   )
 }
-
 export default SignupForm

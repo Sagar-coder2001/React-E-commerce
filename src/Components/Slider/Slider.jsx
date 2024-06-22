@@ -6,7 +6,6 @@ const Slider = () => {
   const bgcolor = useSelector((state) => state.theme.value)
   const txtcolor = useSelector((state) => state.theme.textcolor)
 
-
   return (
     <>
       <div style={{backgroundColor : bgcolor, color : txtcolor}}>
