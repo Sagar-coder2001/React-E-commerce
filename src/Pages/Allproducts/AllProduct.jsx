@@ -3,7 +3,7 @@ import axios from "axios"
 import './AllProduct.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectProduct } from '../../Features/Selectedproductslice'
-import { useNavigate } from 'react-router-dom';
+import { json, useNavigate } from 'react-router-dom';
 import Layout from '../../Components/Layout/Layout'
 import './AllProduct.css';
 import Offer from '../../Components/Offers/Offer.jsx'
@@ -33,25 +33,32 @@ const AllProduct = () => {
     }
   }, [selectedCategory]);
 
-  // useEffect(() => {
-  //   const fetchAllData = async () => {
-  //     const res = await axios ('https://dummyjson.com/products')
-  //     setProduct(res.data.products);
-  //   }
-  //   fetchAllData();
-  // },[])
-
   const handleProductClick = (item) => {
+    window.scrollTo(0,0);
     dispatch(selectProduct(item));
     navigate(`/product/${item.id}`);
   };
 
-   const handleAddToCart = (event, item) => {
+  const handleAddToCart = (event, item) => {
     event.stopPropagation();
-    // Add your add to cart logic here
     console.log(`Adding ${item.title} to cart`);
-    dispatch(addtocartproduct(item))
+  
+    // Retrieve the current cart from local storage
+    const currentCart = JSON.parse(localStorage.getItem('cartitem')) || [];
+  
+    // Check if the item is already in the cart
+    const itemExists = currentCart.some(cartItem => cartItem.id === item.id); // Adjust based on your item's unique identifier
+  
+    if (!itemExists) {
+      // If the item is not in the cart, add it
+      currentCart.push(item);
+      localStorage.setItem('cartitem', JSON.stringify(currentCart));
+      dispatch(addtocartproduct()); // Assuming this function handles adding to your global state
+    } else {
+      alert(`${item.title} is already in the cart.`);
+    }
   };
+  
 
   return (
     <>

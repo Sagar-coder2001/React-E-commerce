@@ -42,7 +42,6 @@ const Productdetail = () => {
         </div>
           </div>
           <div className="rightproduct">
-            <button onClick={() => navigate(`/products/${product}`)} className='back' style={{color : txtcolor}}>Go Back</button>
             <h3>{product.title}</h3>
             <p>{product.description}</p>
             <p>Price: ${product.price}</p>
@@ -53,11 +52,7 @@ const Productdetail = () => {
             <button style={{marginLeft : '5px', color : txtcolor}}>Buy Now</button>
           </div>
         </div>
-        {/* <div className="diffimages">
-            <img src= {  product.images[1]}alt="" />
-            <img src= {  product.images[2]}alt="" />
-            <img src= {  product.images[3]}alt="" />
-        </div> */}
+        
       </div>
     </Layout>
   );

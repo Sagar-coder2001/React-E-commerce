@@ -12,54 +12,70 @@ const addproductslice = createSlice({
   initialState,
   
   reducers: {
-    addtocartproduct: (state , action) => {
-      const newItem = action.payload;
-      const existingItem = state.cartItems.find(
-        (item) => item.id === newItem.id
-      );
-      state.totalQuantity++;
+    addtocartproduct: (state) => {
+      const storedItem = JSON.parse(localStorage.getItem('cartitem')) || [];
+      
+      storedItem.forEach((newItem) => {
+        const existingItem = state.cartItems.find(item => item.id === newItem.id);
+        
+        if (!existingItem) {
+          // If the item does not exist, add it to the cart
+          state.cartItems.push({
+            id: newItem.id,
+            productName: newItem.title,
+            image: newItem.images,
+            price: newItem.price,
+            quantity: 1,
+            totalPrice: newItem.price,
+          });
+          state.totalQuantity++;
+        } else {
+          // If the item already exists, update its quantity and total price
+          existingItem.quantity++;
+          existingItem.totalPrice += Number(newItem.price);
+          // state.totalQuantity++; // Increment totalQuantity
+        }
+      });
 
-      if (!existingItem) {
-        state.cartItems.push({
-          id: newItem.id,
-          productName: newItem.title,
-          image: newItem.images,
-          price: newItem.price,
-          quantity: 1,
-          totalPrice: newItem.price,
-        });
-      } else {
-        existingItem.quantity++;
-        existingItem.totalPrice =
-        Number(existingItem.totalPrice) + Number(newItem.price);
-      }
+      // Update total amount after changes
       state.totalAmount = state.cartItems.reduce(
-        (total, item) => total + Number(item.price) * Number(item.quantity), 0
-      );
+        (total, item) => total + Number(item.price) * item.quantity, 0
+      ).toFixed(2);
     },
 
     deleteItem: (state, action) => {
       const id = action.payload;
       const existingItem = state.cartItems.find((item) => item.id === id);
+      
       if (existingItem) {
         state.cartItems = state.cartItems.filter((item) => item.id !== id);
-        state.totalQuantity = state.totalQuantity - existingItem.quantity;
+        state.totalQuantity -= existingItem.quantity; // Deduct the item's quantity
       }
+
+      // Update total amount after deletion
       state.totalAmount = state.cartItems.reduce(
-        (total, item) =>  (total + Number(item.price) * Number(item.quantity)).toFixed(2), 0.00
-      );
+        (total, item) => total + Number(item.price) * item.quantity, 0
+      ).toFixed(2);
     },
 
     updateQuantity: (state, action) => {
       const { id, quantity } = action.payload;
       const product = state.cartItems.find(item => item.id === id);
+      
       if (product) {
+        // Adjust totalQuantity based on the difference
+        const quantityChange = quantity - product.quantity;
         product.quantity = quantity;
+        state.totalQuantity += quantityChange; // Update totalQuantity accordingly
       }
-    },
 
+      // Update total amount after quantity change
+      state.totalAmount = state.cartItems.reduce(
+        (total, item) => total + Number(item.price) * item.quantity, 0
+      ).toFixed(2);
     },
+  },
 });
 
-export const { addtocartproduct , deleteItem , updateQuantity} = addproductslice.actions;
+export const { addtocartproduct, deleteItem, updateQuantity } = addproductslice.actions;
 export default addproductslice.reducer;

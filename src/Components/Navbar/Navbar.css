@@ -54,6 +54,10 @@ nav{
     font-size: 20px;
     margin: 0px 8px;
 }
+.right .u_login{
+    padding: 3px;
+    cursor: pointer;
+}
 .cartquantity{
     color: black;
     position: absolute;
@@ -66,25 +70,44 @@ nav{
 .carticon{
     position: relative;
 }
-@media screen and (max-width:920px) {
+.user-details{
+    margin-left: 10px;
+}
+.user-details img{
+    width: 25px;
+    height: 25px;
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+    border-radius: 50%; /* Optional: Makes the image circular */
+    background-color: transparent;
+    margin-bottom: 5px;  
+    cursor: pointer;
+}
+.u_logout{
+    display: inline;
+}
+.user-details{
+    display: inline;
+}
+@media screen and (max-width:1200px) {
     .middle ul li a{
         display: none;
     }
+    .offcanvas-body .user-details{
+        display: block;
+    }
+    .offcanvas-body .u_logout{
+        display: block;
+    }
+    
     .middle ul{
-        position: absolute;
-        top: 72px;
-        z-index: 1000;
-        right: 0;
-        width: 80%;
-        height: 100vh;
-        background-color: black;
+        /* background-color: black;
         display: flex;
         flex-direction: column;
         justify-content: start;
         padding-top: 30px;
-        border-radius: 10px;
+        border-radius: 10px; */
         display: none;
-        text-align: center;
+        /* text-align: center; */
     }
      #nav ul{
         display: block;
@@ -108,8 +131,8 @@ nav{
         color: white;
     }
     .left img{
-        width: 50px;
-        height: 50px;
+        width: 30px;
+        height: 30px;
         background-size: cover;
         object-fit: cover;
         border-radius: 50%;
@@ -117,5 +140,62 @@ nav{
     .left a{
         font-size: 20px;
     }
+    .u_logout{
+        display: none;
+    }
+    .user-details{
+        display: none;
+    }
+  
     
 }
+
+.offcanvas{
+    width: 100%;
+    height: 100vh;
+    overflow: auto;
+    padding-bottom: 20px;
+}
+
+.offcanvas ::-webkit-scrollbar{
+    display: none;
+  }
+
+.offcanvas-bod{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    width: 100%;
+    height: 100vh;
+    flex-direction: column;
+  }
+
+  .offcanvas-bod img{
+    width: 40px;
+    border-radius: 50%;
+    height: 40px;
+    margin-right: -20px;
+    padding-bottom: 10px ;
+    object-fit: cover;
+    background-position: center;
+    background-size: cover;
+  }
+  .offcanvas-bod ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .offcanvas-bod a{
+      font-size: 20px;
+      font-size: 22px;
+      border-bottom: 3px solid rgb(26, 226, 193);
+      margin: 10px;
+      padding: 5px 20px;
+
+  }
+  .u-logout{
+    font-size: 20px;
+    margin-left: 20px;
+  }

@@ -3,6 +3,7 @@ import { useDispatch , useSelector } from 'react-redux'
 import { selectCategory } from '../../Features/Allproductslice'
 import { useNavigate } from 'react-router-dom'
 import Layout from '../Layout/Layout'
+import './Category.css';
 
 const Category = () => {
   const bgcolor = useSelector((state) => state.theme.value);
@@ -54,6 +55,7 @@ const Category = () => {
     ]);
 
     const handlecart = (item) => {
+      window.scrollTo(0,0);
       dispatch(selectCategory(item))
       navigate(`/products/${item}`)
     }
@@ -66,7 +68,7 @@ const Category = () => {
             category.map((item) => {
               return(
                 <div className="catcontainer">
-                <div className="cat" onClick={() => handlecart(item.name) } key={item.name}>
+                <div className="category" onClick={() => handlecart(item.name) } key={item.name}>
                   <img src={item.img} alt="" />
                   <h3>{item.name}</h3>
                 </div>

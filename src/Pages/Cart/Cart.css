@@ -1,9 +1,10 @@
 .cart img{
-    width: 70px;
-    height: 70px;
+    width: 50px;
+    height: 50px;
     object-fit: cover;
     background-position: center;
     background-size: cover;
+    flex-basis: 10%;
 }
 .cartcontainer{
     padding: 30px 0px;

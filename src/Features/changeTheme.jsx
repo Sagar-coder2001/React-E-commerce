@@ -1,30 +1,35 @@
-import {createSlice} from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit';
 
+// Retrieve initial theme from localStorage, or use default
+const storedTheme = localStorage.getItem('theme') || 'white';
+const initialState = storedTheme === 'white' ? {
+  value: 'white',
+  navbar: '#a9f0da',
+  textcolor: 'black'
+} : {
+  value: '#0E1027',
+  navbar: 'black',
+  textcolor: 'white'
+};
 
-const initialState = {
-    value: 'white',
-    navbar : '#a9f0da',
-    textcolor : 'black'
-  }
+export const changetheme = createSlice({
+  name: 'changetheme',
+  initialState,
+  reducers: {
+    white: (state) => {
+      state.value = 'white';
+      state.navbar = '#a9f0da';
+      state.textcolor = 'black';
+      localStorage.setItem('theme', 'white'); // Store in localStorage
+    },
+    dark: (state) => {
+      state.value = '#0E1027';
+      state.navbar = 'black';
+      state.textcolor = 'white';
+      localStorage.setItem('theme', 'dark'); // Store in localStorage
+    },
+  },
+});
 
-  export const changetheme = createSlice({
-    name : 'changetheme',
-
-    initialState,
-    
-    reducers : {
-        white : (state ) => {
-            state.value = 'white'
-            state.navbar = '#a9f0da'
-            state.textcolor = 'black'
-        },
-        dark : (state) => {
-            state.value = '#0E1027'
-            state.navbar = 'black'
-            state.textcolor = 'white'
-        }
-    }
-  })
-
-  export const {white , dark} =  changetheme.actions
-  export default changetheme.reducer
+export const { white, dark } = changetheme.actions;
+export default changetheme.reducer;
